@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp"
+    >
+
+    <!-- Image with rounded corners and border -->
+    <ImageView
+        android:id="@+id/imageCategory"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/product1"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center" />
+
+    <!-- Category name with customized text styling -->
+    <TextView
+        android:id="@+id/nameCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textColor="@color/blackFull"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_semi"
+        android:gravity="center" />
+
+</LinearLayout>

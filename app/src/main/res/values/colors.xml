@@ -1,0 +1,30 @@
+<resources>
+    <!-- Basic colors -->
+    <color name="purple_500">#2A9C68</color>
+    <color name="black">#FF000000</color>
+    <color name="blackFull">#000000</color>
+    <color name="red">#E85353</color>
+    <color name="oragen">#FF7A00</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#1FC57A</color>
+    <color name="green">#53E88B</color>
+    <color name="backgroundOpacityGreen">#59C477</color>
+    <color name="submit">#FFC83EDF</color>
+    <color name="xam">#FFFFFF</color>
+    <color name="colorBackground1">#FDFCFC</color>
+    <color name="starColor">#F0E370</color>
+    <color name="brown">#181818</color>
+    <!-- Primary colors -->
+    <color name="primary">#53E88B</color>
+    <color name="primaryDark">#2A9C68</color>
+    <color name="colorAccent">#53E88B</color>
+    <color name="bg_light">#F8F9FA</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="md_theme_background">#E0E0E0</color>
+    <color name="totalAmountColor">#53E88B</color>
+    <color name="purple_700">#6200EE</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="admin_background">#F0F3CD</color>
+</resources>

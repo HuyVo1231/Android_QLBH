@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/addtocartshape.xml" value="0.1615" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/border_style.xml" value="0.187" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/button_buynow_gradient.xml" value="0.1215" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/button_gohome.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/button_gradient_background.xml" value="0.2375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/card_background.xml" value="0.129" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/card_background2.xml" value="0.1" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/card_background_selected.xml" value="0.156" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/chargereen.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/corner_button.xml" value="0.129" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/green_gradient.xml" value="0.1975" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_bank_transfer.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_bell.xml" value="0.1215" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_cash.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_debitcard.xml" value="0.182" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_delivery.xml" value="0.182" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_exclamation_mark.xml" value="0.175" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_facebook_3_1.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_g10.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_google_icon_2.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_home_04.xml" value="0.2375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_icon.xml" value="0.2375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_icon_search.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_list.xml" value="0.2375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_location.xml" value="0.182" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_lock_01.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_logo.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_logout.xml" value="0.1215" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_menu_photo.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_money.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_notification_cart.xml" value="0.184" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_orderring.xml" value="0.182" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_payment.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_phone.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_recevied.xml" value="0.182" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_user_01.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/ic_user_02.xml" value="0.1745" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/plus_background.xml" value="0.184" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/quantity_background.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/rounded_bg.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/rounded_border_shadow.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/search_background.xml" value="0.2555" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/textviewshape.xml" value="0.1975" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/top_section_background.xml" value="0.178" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/drawable/welcome_background.xml" value="0.17" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_address.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_admin_listorder.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_cart_details.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_change_info.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_changepassword.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_checkbox.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_checkout.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_context_menu.xml" value="0.24682971014492755" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_hello_screen.xml" value="0.23233695652173914" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_list_view.xml" value="0.24682971014492755" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_login2.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_login3.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_option_menu.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_order_detail.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_order_success.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_product_detail.xml" value="0.1" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_product_details.xml" value="0.16" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_signup.xml" value="0.24682971014492755" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_start.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activity_welcome.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/activitychangepassword.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_addcategory.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_addmenu.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_listcategory.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_listorder.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_listproduct.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_login.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_main.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_signup.xml" value="0.2" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_splash.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_activity_start.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_cart_item.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/admin_category_item.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/card_order_item.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/cart_item.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/category_item.xml" value="0.2" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/checkout_item.xml" value="0.4" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/dropdown_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_cart.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_description.xml" value="0.24365942028985507" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_history.xml" value="0.24682971014492755" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_review.xml" value="0.12158054711246201" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/fragment_search.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/gradient_button_background.xml" value="0.2359375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/item_address.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/list_view.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/menu_main.xml" value="0.24682971014492755" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/mylist.xml" value="0.536" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/payment.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/product_edit.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/product_item.xml" value="0.264" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/product_item2.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/product_listview.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/product_render.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/layout/sign.xml" value="0.2359375" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/menu/menu.xml" value="0.25" />
+        <entry key="..\:/hoc/nam4/hk2/MyApplication2/app/src/main/res/menu/menu_main.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.4" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

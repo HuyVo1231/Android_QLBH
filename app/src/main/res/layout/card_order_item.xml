@@ -1,0 +1,114 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:id="@+id/rootLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <!-- Hình ảnh của đơn hàng -->
+        <ImageView
+            android:id="@+id/orderImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/banner1" />
+
+        <!-- Thông tin đơn hàng -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/orderTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:30 AM, Dec 21, 2024"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginTop="10dp" />
+
+            <!-- Ghi chú đơn hàng -->
+            <TextView
+                android:id="@+id/orderNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ghi chú: giao hàng lúc 1 giờ chiều nhé"
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/poppins_regular"
+                />
+
+            <!-- Trạng thái đơn hàng -->
+            <TextView
+                android:id="@+id/orderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đã nhận hàng"
+                android:textSize="12sp"
+                android:textColor="#4CAF50"
+                android:fontFamily="@font/poppins_regular"
+                />
+
+            <!-- Giá đơn hàng -->
+            <TextView
+                android:id="@+id/orderPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$100"
+                android:textSize="14sp"
+                android:textColor="@color/green"
+                android:fontFamily="@font/poppins_bold"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:layout_marginTop="8dp">
+
+            <!-- Text "Delivered" -->
+            <TextView
+                android:id="@+id/deliveredText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivered"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="#4CAF50"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Biểu tượng trạng thái -->
+            <ImageView
+                android:id="@+id/statusIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_recevied" />
+
+            <!-- Icon close -->
+            <ImageView
+                android:id="@+id/closeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_close"
+                android:visibility="gone"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
