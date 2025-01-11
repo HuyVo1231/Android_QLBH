@@ -13,7 +13,7 @@ import com.example.myapplication.model.User;
 import com.example.myapplication.model.UserManager;
 
 public class AdminActivityMain extends AppCompatActivity {
-    CardView addMenu, addCategory, listProduct,listCategory, listOrder;
+    CardView addMenu, addCategory, listProduct,listCategory, listOrder, btnStatistics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class AdminActivityMain extends AppCompatActivity {
         listProduct = findViewById(R.id.listProduct);
         listCategory = findViewById(R.id.listCategory);
         listOrder = findViewById(R.id.listOrder);
+        btnStatistics = findViewById(R.id.btnStatistics);
 
         ConnectDatabase dbHelper = new ConnectDatabase(this);
         dbHelper.getWritableDatabase();
@@ -55,5 +56,11 @@ public class AdminActivityMain extends AppCompatActivity {
             Intent intent = new Intent(AdminActivityMain.this, AdminActivityListOrder.class);
             startActivity(intent);
         });
+
+        btnStatistics.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminActivityMain.this, AdminActivityStatistics.class);
+            startActivity(intent);
+        });
+
     }
 }

@@ -3,6 +3,8 @@ package com.example.myapplication.admin;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +20,8 @@ public class AdminActivityListOrder extends AppCompatActivity {
     private OrderAdapter orderAdapter;
     private OrderDatabaseHelper databaseHelper;
     private static final int REQUEST_CODE_ORDER_DETAILS = 1;
+    private ImageView btnArrowBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,9 @@ public class AdminActivityListOrder extends AppCompatActivity {
         // Initialize database helper and open connection
         databaseHelper = new OrderDatabaseHelper(this);
         databaseHelper.open();
+
+        btnArrowBack = findViewById(R.id.btnArrowBack);
+        btnArrowBack.setOnClickListener(v -> backScreen());
 
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.recyclerViewOrders);
@@ -56,6 +63,10 @@ public class AdminActivityListOrder extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_ORDER_DETAILS && resultCode == Activity.RESULT_OK) {
             loadOrders();
         }
+    }
+
+    private void backScreen() {
+        finish();
     }
 
 }

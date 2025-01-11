@@ -6,8 +6,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".BaseApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,6 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+        <activity
+            android:name=".AdminActivityStatistics"
+            android:exported="false" />
+        <!-- Corrected Typo in Activity Name -->
         <activity
             android:name=".OrderDetailsActivity"
             android:exported="false" />
@@ -34,13 +40,27 @@
             android:exported="false" />
         <activity
             android:name=".OrderSuccessActivity"
-            android:exported="false" />
+            android:exported="true"></activity>
         <activity
             android:name=".ProductDetailActivity"
             android:exported="false" />
         <activity
             android:name=".CheckoutActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:label="Merchant Demo"
+            android:launchMode="singleTask"
+            tools:ignore="AppLinkUrlError">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="app"
+                    android:scheme="demozpdk" />
+            </intent-filter>
+        </activity> <!-- Remaining Activities -->
         <activity
             android:name=".ListView_Database"
             android:exported="false" />
@@ -84,6 +104,9 @@
             android:name=".admin.AdminActivityListOrder"
             android:exported="false" />
         <activity
+            android:name=".admin.AdminActivityStatistics"
+            android:exported="false" />
+        <activity
             android:name=".Welcome"
             android:exported="false" />
         <activity
@@ -94,11 +117,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
+        </activity> <!-- Cloudinary Meta-Data -->
         <meta-data
             android:name="CLOUDINARY_URL"
-            android:value="CLOUDINARY_URL=cloudinary://692586855575142:_2MfEZB9hOuXENcRAGqx-30JvPQ@daz1udjeb" />
+            android:value="cloudinary://692586855575142:_2MfEZB9hOuXENcRAGqx-30JvPQ@daz1udjeb" />
     </application>
 
 </manifest>

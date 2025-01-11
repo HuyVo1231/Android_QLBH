@@ -12,7 +12,9 @@ import com.example.myapplication.model.OrderDetail;
 import com.example.myapplication.util.TimeUtil;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OrderDatabaseHelper {
     private SQLiteDatabase database;
@@ -228,6 +230,59 @@ public class OrderDatabaseHelper {
             Log.d("Database", "Đơn hàng và chi tiết đơn hàng đã được xóa với orderId: " + orderId);
             return true;
         }
+    }
+
+    public List<Map<String, Object>> getTopSellingProducts(String timeframe, String dateValue) {
+        List<Map<String, Object>> result = new ArrayList<>();
+
+        // Chọn truy vấn phù hợp
+        String query = "";
+        if (timeframe.equals("day")) {
+            query = "SELECT p.name AS product_name, " +
+                    "SUM(od.quantity) AS total_quantity, " +
+                    "SUM(od.quantity * od.price) AS total_revenue " +
+                    "FROM order_detail od " +
+                    "JOIN `order` o ON od.order_id = o.order_id " +
+                    "JOIN product2 p ON od.product_id = p.id " +
+                    "WHERE DATE(o.order_date) = ? " +
+                    "GROUP BY p.id " +
+                    "ORDER BY total_quantity DESC";
+        } else if (timeframe.equals("month")) {
+            query = "SELECT p.name AS product_name, " +
+                    "SUM(od.quantity) AS total_quantity, " +
+                    "SUM(od.quantity * od.price) AS total_revenue " +
+                    "FROM order_detail od " +
+                    "JOIN `order` o ON od.order_id = o.order_id " +
+                    "JOIN product2 p ON od.product_id = p.id " +
+                    "WHERE strftime('%Y-%m', o.order_date) = ? " +
+                    "GROUP BY p.id " +
+                    "ORDER BY total_quantity DESC";
+        } else if (timeframe.equals("year")) {
+            query = "SELECT p.name AS product_name, " +
+                    "SUM(od.quantity) AS total_quantity, " +
+                    "SUM(od.quantity * od.price) AS total_revenue " +
+                    "FROM order_detail od " +
+                    "JOIN `order` o ON od.order_id = o.order_id " +
+                    "JOIN product2 p ON od.product_id = p.id " +
+                    "WHERE strftime('%Y', o.order_date) = ? " +
+                    "GROUP BY p.id " +
+                    "ORDER BY total_quantity DESC";
+        }
+
+        // Thực thi truy vấn
+        Cursor cursor = database.rawQuery(query, new String[]{dateValue});
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                Map<String, Object> row = new HashMap<>();
+                row.put("product_name", cursor.getString(cursor.getColumnIndexOrThrow("product_name")));
+                row.put("total_quantity", cursor.getInt(cursor.getColumnIndexOrThrow("total_quantity")));
+                row.put("total_revenue", cursor.getDouble(cursor.getColumnIndexOrThrow("total_revenue")));
+                result.add(row);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        return result;
     }
 
 

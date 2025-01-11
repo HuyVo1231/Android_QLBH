@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,10 +61,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
             return;
         }
 
-        if (passwordCurrent != oldPassword) {
+        if (!passwordCurrent.equals(oldPassword)) {
             Toast.makeText(this, "Wrong old password.", Toast.LENGTH_SHORT).show();
             return;
         }
+
 
         dbHelper = new UserDatabaseHelper(this);
         Integer idUser = UserManager.getInstance().getUser().getId();

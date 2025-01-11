@@ -66,7 +66,7 @@ public class ImageHelper {
                     @Override
                     public void onError(String requestId, ErrorInfo error) {
                         Log.e(TAG, "Upload thất bại: " + error.getDescription());
-                        errorCallback.run(); // Hủy Toast khi tải ảnh thất bại
+                        errorCallback.run();
                     }
 
                     @Override

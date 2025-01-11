@@ -7,7 +7,7 @@
 
     <!-- TextView hiển thị thông điệp chức mừng -->
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -28,7 +28,7 @@
         android:src="@drawable/ic_success_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5"
+        app:layout_constraintTop_toBottomOf="@id/textInfo"
         android:layout_marginTop="20dp" />
 
     <!-- TextView hiển thị message nhỏ thêm -->

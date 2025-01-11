@@ -23,7 +23,7 @@ public class CloudinaryConnect {
 
             // Khởi tạo Cloudinary MediaManager chỉ khi chưa được khởi tạo
             MediaManager.init(context, config);
-            isInitialized = true;  // Đánh dấu đã khởi tạo
+            isInitialized = true;
         }
     }
 }
