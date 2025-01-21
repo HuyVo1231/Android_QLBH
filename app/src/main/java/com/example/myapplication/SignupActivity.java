@@ -91,7 +91,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         // Create user object
-        User newUser = new User(0,username, password, username, numberphone, "", "","https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",false);
+        User newUser = new User(0,username, password, username, numberphone, "", "","/data/data/com.example.myapplication/files/avatar-default.png",false);
 
         // Add user to the database
         long result = userDatabaseHelper.addUser(newUser);

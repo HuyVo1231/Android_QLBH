@@ -21,6 +21,13 @@ public class SharedPreferncesClass {
         editor.commit();
     }
 
+    public void clearLoginDetails() {
+        SharedPreferences sharedPre = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPre.edit();
+        editor.clear();
+        editor.commit();
+    }
+
     // Get username
     public String getUserName() {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
@@ -32,6 +39,4 @@ public class SharedPreferncesClass {
         SharedPreferences sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(PASSWORD, "");
     }
-
-
 }

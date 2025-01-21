@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     CheckBox checkBoxRemember;
     TextView toRegister;
     UserDatabaseHelper dbHelper;
+    SharedPreferncesClass sharedPreferncesClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +28,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login2);
 
         dbHelper = new UserDatabaseHelper(this);
+        sharedPreferncesClass = new SharedPreferncesClass(this);
 
         initializeViews();
+
+        // Khi checkbox được check, tự động điền thông tin đăng nhập
+        loadSavedLoginDetails();
 
         buttonLogin.setOnClickListener(this);
         toRegister.setOnClickListener(this);
@@ -52,7 +57,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextPassword = findViewById(R.id.editTextPassword);
         checkBoxRemember = findViewById(R.id.checkBoxRemember);
-
     }
 
     public void ToRegister() {
@@ -78,6 +82,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // Đưa info vào UserManager.
             UserManager.getInstance().setUser(user);
 
+            // Lưu thông tin vào SharedPreferences nếu checkbox được check
+            if (checkBoxRemember.isChecked()) {
+                sharedPreferncesClass.saveLoginDetails(phone, password);
+            } else {
+                // Nếu không check, vẫn lưu lại nhưng xóa thông tin khi logout hoặc lần sau login
+                sharedPreferncesClass.clearLoginDetails();
+            }
+
             // Chuyển màn hình.
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
@@ -88,5 +100,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         dbHelper.close();
+    }
+
+    // Hàm để tự động điền thông tin đăng nhập khi Remember Me được check
+    private void loadSavedLoginDetails() {
+        String savedUserName = sharedPreferncesClass.getUserName();
+        String savedPassword = sharedPreferncesClass.getPassword();
+
+        if (!savedUserName.isEmpty() && !savedPassword.isEmpty()) {
+            editTextPhone.setText(savedUserName);
+            editTextPassword.setText(savedPassword);
+            checkBoxRemember.setChecked(true);
+        }
     }
 }

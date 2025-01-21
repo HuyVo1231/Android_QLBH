@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -12,11 +11,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.cloudinary.CloudinaryConnect;
 import com.example.myapplication.cloudinary.ImageHelper;
-import com.example.myapplication.database.CategoryDatabaseHelper;
 import com.example.myapplication.database.UserDatabaseHelper;
-import com.example.myapplication.model.CategoryModel;
 import com.example.myapplication.model.User;
 import com.example.myapplication.model.UserManager;
 import com.google.android.material.textfield.TextInputEditText;
@@ -39,9 +35,6 @@ public class ChangeInfoActivity extends AppCompatActivity {
 
         databaseHelper = new UserDatabaseHelper(this);
         databaseHelper.open();
-
-        // Connect to Cloudinary
-        CloudinaryConnect.initCloudinaryConfig(this);
 
         imageHelper = new ImageHelper(this, profileImageView);
 
@@ -69,6 +62,7 @@ public class ChangeInfoActivity extends AppCompatActivity {
     private void setupListeners() {
         // Open gallery to select an image
         btnGallery.setOnClickListener(v -> imageHelper.openGallery());
+
         // Set the save button click listener
         btnUpload.setOnClickListener(v -> updateUserInfo());
 
@@ -78,13 +72,13 @@ public class ChangeInfoActivity extends AppCompatActivity {
 
     // Update user information in the database
     private void updateUserInfo() {
-        // Lấy thông tin từ các EditText
+        // Get information from EditText fields
         String username = usernameEditText.getText().toString().trim();
         String fullName = fullNameEditText.getText().toString().trim();
         String email = emailEditText.getText().toString().trim();
         String address = addressEditText.getText().toString().trim();
 
-        // Lấy thông tin người dùng hiện tại từ UserManager
+        // Get the current user from UserManager
         User currentUser = UserManager.getInstance().getUser();
 
         // Validate email format
@@ -93,56 +87,61 @@ public class ChangeInfoActivity extends AppCompatActivity {
             return;
         }
 
-        // Kiểm tra nếu ảnh có thay đổi
+        // Check if image has changed
         if (imageHelper.hasImageChanged()) {
             loadingToast = Toast.makeText(this, "Đang tải ảnh...", Toast.LENGTH_LONG);
             loadingToast.show();
 
-            // Upload ảnh nếu người dùng đã chọn ảnh mới
-            imageHelper.uploadImage(imageUrl -> {
-                // Cập nhật thông tin người dùng hiện tại
-                currentUser.setUsername(username);
-                currentUser.setFullName(fullName);
-                currentUser.setEmail(email);
-                currentUser.setAddress(address);
-                currentUser.setImageUrl(imageUrl);
+            // Save image locally if the user has selected a new image
+            imageHelper.saveImageToLocalFolder(imageHelper.getImageUri(), "ProfileImages", new ImageHelper.ImageSaveCallback() {
+                @Override
+                public void onImageSaved(String filePath) {
+                    // Update current user information
+                    currentUser.setUsername(username);
+                    currentUser.setFullName(fullName);
+                    currentUser.setEmail(email);
+                    currentUser.setAddress(address);
+                    currentUser.setImageUrl(filePath);
 
-                // Cập nhật vào cơ sở dữ liệu
-                boolean result = databaseHelper.updateUser(currentUser);
+                    // Update in database
+                    boolean result = databaseHelper.updateUser(currentUser);
 
-                // Lưu thông tin người dùng vào UserManager
-                UserManager.getInstance().setUser(currentUser);
+                    // Save user information to UserManager
+                    UserManager.getInstance().setUser(currentUser);
 
-                runOnUiThread(() -> {
-                    loadingToast.cancel();
-                    if (result) {
-                        Toast.makeText(this, "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
-                        backScreen();
-                    } else {
-                        Toast.makeText(this, "Cập nhật thông tin thất bại!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }, () -> {
-                // Nếu tải ảnh thất bại
-                runOnUiThread(() -> {
-                    loadingToast.cancel();
-                    Toast.makeText(this, "Tải ảnh thất bại!", Toast.LENGTH_SHORT).show();
-                });
+                    runOnUiThread(() -> {
+                        if (loadingToast != null) loadingToast.cancel();
+                        if (result) {
+                            Toast.makeText(ChangeInfoActivity.this, "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
+                            backScreen();
+                        } else {
+                            Toast.makeText(ChangeInfoActivity.this, "Cập nhật thông tin thất bại!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+                @Override
+                public void onError() {
+                    runOnUiThread(() -> {
+                        if (loadingToast != null) loadingToast.cancel();
+                        Toast.makeText(ChangeInfoActivity.this, "Lưu ảnh thất bại!", Toast.LENGTH_SHORT).show();
+                    });
+                }
             });
         } else {
-            // Nếu ảnh không thay đổi, chỉ cập nhật thông tin
+            // If the image hasn't changed, just update the information
             currentUser.setUsername(username);
             currentUser.setFullName(fullName);
             currentUser.setEmail(email);
             currentUser.setAddress(address);
 
-            // Cập nhật vào cơ sở dữ liệu
+            // Update in database
             boolean result = databaseHelper.updateUser(currentUser);
 
-            // Lưu thông tin người dùng vào UserManager
+            // Save user information to UserManager
             UserManager.getInstance().setUser(currentUser);
 
-            // Hiển thị thông báo cho người dùng
+            // Notify the user
             if (result) {
                 Toast.makeText(this, "Cập nhật thông tin thành công!", Toast.LENGTH_SHORT).show();
                 Intent resultIntent = new Intent();

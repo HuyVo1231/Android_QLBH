@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
-import com.example.myapplication.cloudinary.CloudinaryConnect;
 import com.example.myapplication.cloudinary.ImageHelper;
 import com.example.myapplication.database.CategoryDatabaseHelper;
 import com.example.myapplication.model.CategoryModel;
@@ -37,8 +36,6 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
         databaseHelper = new CategoryDatabaseHelper(this);
         databaseHelper.open();
-
-        CloudinaryConnect.initCloudinaryConfig(this);
 
         imageHelper = new ImageHelper(this, imgGallery);
 
@@ -87,32 +84,37 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
         if (!validateInputs(categoryId, categoryName)) return;
 
-        // Check if category code exists
         if (databaseHelper.isCategoryCodeExists(categoryId)) {
-            showToast("Mã danh mục đã tồn tại. Vui lòng sử dụng mã khác.");
+            showToast("Category ID already exists. Please use another.");
             return;
         }
 
         setButtonsEnabled(false);
+        showLoadingToast("Saving image...");
 
-        loadingToast = Toast.makeText(this, "Đang tải ảnh...", Toast.LENGTH_LONG);
-        loadingToast.show();
+        imageHelper.saveImageToLocalFolder(imageHelper.getImageUri(), "CategoryImages", new ImageHelper.ImageSaveCallback() {
+            @Override
+            public void onImageSaved(String filePath) {
+                CategoryModel category = new CategoryModel(categoryId, categoryName, filePath);
+                long result = databaseHelper.addCategory(category);
 
-        imageHelper.uploadImage(imageUrl -> {
-            CategoryModel category = new CategoryModel(categoryId, categoryName, imageUrl);
-            long result = databaseHelper.addCategory(category);
+                runOnUiThread(() -> {
+                    if (loadingToast != null) loadingToast.cancel();
+                    Toast.makeText(AdminActivityAddCategory.this, result > 0 ? "Category added successfully!" : "Failed to add category!", Toast.LENGTH_SHORT).show();
+                    setButtonsEnabled(true);
+                    if (result > 0) setResultAndFinish();
+                });
+            }
 
-            runOnUiThread(() -> {
-                loadingToast.cancel();
-                Toast.makeText(this, result > 0 ? "Thêm danh mục thành công!" : "Thêm danh mục thất bại!", Toast.LENGTH_SHORT).show();
-                setButtonsEnabled(true);
-                if (result > 0) setResultAndFinish();
-            });
-        }, () -> runOnUiThread(() -> {
-            loadingToast.cancel();
-            setButtonsEnabled(true);
-            Toast.makeText(this, "Tải ảnh thất bại!", Toast.LENGTH_SHORT).show();
-        }));
+            @Override
+            public void onError() {
+                runOnUiThread(() -> {
+                    if (loadingToast != null) loadingToast.cancel();
+                    setButtonsEnabled(true);
+                    showToast("Failed to save image!");
+                });
+            }
+        });
     }
 
     private void updateCategory() {
@@ -123,30 +125,37 @@ public class AdminActivityAddCategory extends AppCompatActivity {
         setButtonsEnabled(false);
         showLoadingToast("Updating category...");
 
-        if (imageHelper.hasImageChanged()) { // Check if the image has changed
-            imageHelper.uploadImage(imageUrl -> {
-                CategoryModel category = new CategoryModel(categoryId, categoryName, imageUrl);
-                boolean result = databaseHelper.updateCategoryById(categoryId, category);
+        if (imageHelper.hasImageChanged()) {
+            imageHelper.saveImageToLocalFolder(imageHelper.getImageUri(), "CategoryImages", new ImageHelper.ImageSaveCallback() {
+                @Override
+                public void onImageSaved(String filePath) {
+                    CategoryModel category = new CategoryModel(categoryId, categoryName, filePath);
+                    boolean result = databaseHelper.updateCategoryById(categoryId, category);
 
-                runOnUiThread(() -> {
-                    loadingToast.cancel();
-                    Toast.makeText(this, result ? "Cập nhật danh mục thành công!" : "Failed to update category!", Toast.LENGTH_SHORT).show();
-                    setButtonsEnabled(true);
-                    if (result) setResultAndFinish();
-                });
-            }, () -> runOnUiThread(() -> {
-                loadingToast.cancel();
-                setButtonsEnabled(true);
-                Toast.makeText(this, "Tải ảnh thất bại!", Toast.LENGTH_SHORT).show();
-            }));
+                    runOnUiThread(() -> {
+                        if (loadingToast != null) loadingToast.cancel();
+                        showToast(result ? "Category updated successfully!" : "Failed to update category!");
+                        setButtonsEnabled(true);
+                        if (result) setResultAndFinish();
+                    });
+                }
+
+                @Override
+                public void onError() {
+                    runOnUiThread(() -> {
+                        if (loadingToast != null) loadingToast.cancel();
+                        setButtonsEnabled(true);
+                        showToast("Failed to save image!");
+                    });
+                }
+            });
         } else {
-            // If the image hasn't changed, use the original image URL
             CategoryModel category = new CategoryModel(categoryId, categoryName, originalImageUrl);
             boolean result = databaseHelper.updateCategoryById(categoryId, category);
 
             runOnUiThread(() -> {
-                loadingToast.cancel();
-                Toast.makeText(this, result ? "Cập nhật danh mục thành công!" : "Failed to update category!", Toast.LENGTH_SHORT).show();
+                if (loadingToast != null) loadingToast.cancel();
+                showToast(result ? "Category updated successfully!" : "Failed to update category!");
                 setButtonsEnabled(true);
                 if (result) setResultAndFinish();
             });
