@@ -86,6 +86,21 @@
         app:layout_constraintStart_toStartOf="@+id/editTextPhone"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
+    <TextView
+        android:id="@+id/textBiometricLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Đăng nhập bằng sinh trắc học"
+        android:textColor="@color/green"
+        android:textSize="16sp"
+        android:fontFamily="@font/yeonsung_regular"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="157dp"
@@ -114,10 +129,11 @@
         android:textSize="18sp"
         app:fontFamily="@font/yeonsung_regular"
         app:layout_constraintBottom_toBottomOf="@+id/buttonLogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textBiometricLogin"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/textBiometricLogin"
         app:layout_constraintTop_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
+        app:layout_constraintVertical_bias="0.465" />
 
     <CheckBox
         android:id="@+id/checkBoxRemember"

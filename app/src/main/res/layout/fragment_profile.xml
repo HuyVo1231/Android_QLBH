@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_gohome"
                     app:backgroundTint="@null"
-                    android:text="Change"
+                    android:text="Thay đổi"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -183,7 +183,7 @@
         android:id="@+id/btnChangeInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Info"
+        android:text="Thay đổi thông tin"
         android:textColor="@color/white"
         android:background="@drawable/button_gohome"
         app:backgroundTint="@null"

@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
         android:layout_marginTop="20dp"
-        android:text="Explore Your Favorite Food"
+        android:text="Khám phá các món ăn yêu thích"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textFontWeight="600"

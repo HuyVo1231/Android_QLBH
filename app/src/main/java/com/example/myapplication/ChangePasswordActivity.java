@@ -41,28 +41,23 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         // Kiểm tra nếu các trường không bị trống
         if (TextUtils.isEmpty(oldPassword)) {
-            Toast.makeText(this, "Please enter your old password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Nhập mật khẩu cũ", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (TextUtils.isEmpty(newPassword)) {
-            Toast.makeText(this, "Please enter your new password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        if (TextUtils.isEmpty(newPassword)) {
-            Toast.makeText(this, "Please enter your new password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Nhập mật khẩu mới", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Least 6 chars
         if (newPassword.length() < 6) {
-            Toast.makeText(this, "New password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mật khẩu phải lớn hơn 6 ký tự", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!passwordCurrent.equals(oldPassword)) {
-            Toast.makeText(this, "Wrong old password.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sai mật khẩu cũ.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -77,10 +72,10 @@ public class ChangePasswordActivity extends AppCompatActivity {
             User currentUser = UserManager.getInstance().getUser();
             currentUser.setPassword(newPassword);
 
-            Toast.makeText(this, "Password updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mật khẩu đã cập nhật thành công", Toast.LENGTH_SHORT).show();
         } else {
             // Failed to change password
-            Toast.makeText(this, "Failed to update password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lỗi update mật khẩu", Toast.LENGTH_SHORT).show();
         }
 
         dbHelper.close();

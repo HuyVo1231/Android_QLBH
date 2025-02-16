@@ -85,7 +85,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
         if (!validateInputs(categoryId, categoryName)) return;
 
         if (databaseHelper.isCategoryCodeExists(categoryId)) {
-            showToast("Category ID already exists. Please use another.");
+            showToast("ID Category đã tồn tại");
             return;
         }
 
@@ -100,7 +100,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
                 runOnUiThread(() -> {
                     if (loadingToast != null) loadingToast.cancel();
-                    Toast.makeText(AdminActivityAddCategory.this, result > 0 ? "Category added successfully!" : "Failed to add category!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminActivityAddCategory.this, result > 0 ? "Thêm danh mục thành công!" : "Thêm thất bại!", Toast.LENGTH_SHORT).show();
                     setButtonsEnabled(true);
                     if (result > 0) setResultAndFinish();
                 });
@@ -111,7 +111,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
                 runOnUiThread(() -> {
                     if (loadingToast != null) loadingToast.cancel();
                     setButtonsEnabled(true);
-                    showToast("Failed to save image!");
+                    showToast("Lỗi lưu ảnh!");
                 });
             }
         });
@@ -123,7 +123,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
         if (!validateInputs(categoryId, categoryName)) return;
 
         setButtonsEnabled(false);
-        showLoadingToast("Updating category...");
+        showLoadingToast("Đang cập nhật danh mục...");
 
         if (imageHelper.hasImageChanged()) {
             imageHelper.saveImageToLocalFolder(imageHelper.getImageUri(), "CategoryImages", new ImageHelper.ImageSaveCallback() {
@@ -134,7 +134,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
                     runOnUiThread(() -> {
                         if (loadingToast != null) loadingToast.cancel();
-                        showToast(result ? "Category updated successfully!" : "Failed to update category!");
+                        showToast(result ? "Cập nhật danh mục thành công!" : "Cập nhật danh mục thất bại!");
                         setButtonsEnabled(true);
                         if (result) setResultAndFinish();
                     });
@@ -145,7 +145,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
                     runOnUiThread(() -> {
                         if (loadingToast != null) loadingToast.cancel();
                         setButtonsEnabled(true);
-                        showToast("Failed to save image!");
+                        showToast("Không thể lưu ảnh");
                     });
                 }
             });
@@ -155,7 +155,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
             runOnUiThread(() -> {
                 if (loadingToast != null) loadingToast.cancel();
-                showToast(result ? "Category updated successfully!" : "Failed to update category!");
+                showToast(result ? "Cập nhật danh mục thành công!" : "Cập nhật danh mục thất bại!");
                 setButtonsEnabled(true);
                 if (result) setResultAndFinish();
             });
@@ -164,7 +164,7 @@ public class AdminActivityAddCategory extends AppCompatActivity {
 
     private boolean validateInputs(String idCategory, String name) {
         if (idCategory.isEmpty() || name.isEmpty()) {
-            showToast("Please fill all fields!");
+            showToast("Vui lòng điền tất cả các trường!");
             return false;
         }
         return true;

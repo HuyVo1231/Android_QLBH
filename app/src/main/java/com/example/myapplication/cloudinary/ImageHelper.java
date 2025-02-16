@@ -48,8 +48,8 @@ public class ImageHelper {
 
     public void uploadImage(OnImageUploadedListener successListener, Runnable errorCallback) {
         if (imageUri == null) {
-            Toast.makeText(activity, "Please select an image!", Toast.LENGTH_SHORT).show();
-            errorCallback.run(); // Enable buttons in case of no image
+            Toast.makeText(activity, "Chọn ảnh đi fen!", Toast.LENGTH_SHORT).show();
+            errorCallback.run();
             return;
         }
 
@@ -57,13 +57,13 @@ public class ImageHelper {
                 .callback(new UploadCallback() {
                     @Override
                     public void onStart(String requestId) {
-                        Log.d(TAG, "Upload started...");
+                        Log.d(TAG, "Đang upload...");
                     }
 
                     @Override
                     public void onSuccess(String requestId, Map resultData) {
                         String imageUrl = (String) resultData.get("secure_url");
-                        Log.d(TAG, "Upload successful: " + imageUrl);
+                        Log.d(TAG, "Uplaod thành công nè: " + imageUrl);
                         successListener.onUploaded(imageUrl);
                     }
 
@@ -75,7 +75,7 @@ public class ImageHelper {
 
                     @Override
                     public void onProgress(String requestId, long bytes, long totalBytes) {
-                        Log.d(TAG, "Uploading...");
+                        Log.d(TAG, "Đang upload...");
                     }
 
                     @Override

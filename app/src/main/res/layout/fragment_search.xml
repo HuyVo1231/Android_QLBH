@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Explore Categories"
+        android:text="Loại sản phẩm"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:fontFamily="@font/yeonsung_regular"
@@ -58,12 +58,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="All Products"
+        android:fontFamily="@font/yeonsung_regular"
+        android:text="Tất cả sản phẩm"
         android:textColor="@android:color/black"
         android:textSize="20sp"
-        android:fontFamily="@font/yeonsung_regular"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewCategories" />
 
     <!-- RecyclerView for Products (replacing ListView) -->

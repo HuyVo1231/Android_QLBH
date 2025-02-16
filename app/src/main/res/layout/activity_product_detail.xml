@@ -155,7 +155,7 @@
             android:layout_weight="1"
             android:background="@android:color/white"
             android:padding="16dp"
-            android:text="ADD TO CART"
+            android:text="Thêm giỏ hàng"
             app:fontFamily="@font/poppins_semi"
             android:textAllCaps="false"
             app:backgroundTint="@null"

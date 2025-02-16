@@ -54,9 +54,11 @@ public class ConnectDatabase extends SQLiteOpenHelper {
                 "image_url TEXT, " +
                 "category_id TEXT, " +
                 "sold_quantity INTEGER DEFAULT 0, " +
+                "status INTEGER DEFAULT 1, " +
                 "FOREIGN KEY(category_id) REFERENCES category(id_category) " +
                 ");";
         db.execSQL(createProduct2TableSQL);
+
 
         // Tạo bảng shipping_address
         String createShippingAddressTableSQL = "CREATE TABLE IF NOT EXISTS shipping_address (" +

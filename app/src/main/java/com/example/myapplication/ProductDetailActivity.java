@@ -105,13 +105,13 @@ public class ProductDetailActivity extends AppCompatActivity {
         // Xử lý click add to cart
         addtoCart.setOnClickListener(v -> {
             CartManager.getInstance().addToCart(productInfo);
-            Toast.makeText(this, productInfo.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, productInfo.getName() + " đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
         });
 
         // Xử lý click buy now
         buynow.setOnClickListener(v -> {
             CartManager.getInstance().addToCart(productInfo);
-            Toast.makeText(this, productInfo.getName() + " added to cart!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, productInfo.getName() + " đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("fragment_id", R.id.cartFragment);

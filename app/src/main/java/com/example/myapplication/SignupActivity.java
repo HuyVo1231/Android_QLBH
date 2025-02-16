@@ -66,27 +66,27 @@ public class SignupActivity extends AppCompatActivity {
 
         // Validate user input
         if (username.isEmpty() || numberphone.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Vui lòng điển đầy đủ thông tin.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Check if the username already exists in the database
         userDatabaseHelper.open();
         if (userDatabaseHelper.checkIfUsernameExists(username) || userDatabaseHelper.isPhoneExist(numberphone)) {
-            Toast.makeText(this, "Username or numberphone already exists", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Username hoặc phone đã tồn tại", Toast.LENGTH_SHORT).show();
             userDatabaseHelper.close();
             return;
         }
 
         // Phone number validation (ensure it has only digits and a valid length)
         if (!numberphone.matches("[0-9]+") || numberphone.length() != 10) {
-            Toast.makeText(this, "Please enter a valid phone number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Nhập đúng định dạng email.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Password validation (minimum 6 characters for example)
         if (password.length() < 6) {
-            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Mật khẩu phải lớn hơn 6 kí tự.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -99,13 +99,13 @@ public class SignupActivity extends AppCompatActivity {
 
         // Check if user was successfully added
         if (result != -1) {
-            Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
             // Navigate to login page after successful sign-up
             Intent loginIntent = new Intent(SignupActivity.this, LoginActivity.class);
             startActivity(loginIntent);
             finish(); // Close signup activity
         } else {
-            Toast.makeText(this, "Sign Up Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Đăng ký failed.", Toast.LENGTH_SHORT).show();
         }
     }
 

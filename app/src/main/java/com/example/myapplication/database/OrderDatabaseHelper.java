@@ -53,7 +53,6 @@ public class OrderDatabaseHelper {
         return orderId;
     }
 
-
     public long addOrderDetail(OrderDetail orderDetail) {
         ContentValues values = new ContentValues();
         values.put("order_id", orderDetail.getOrderId());
@@ -72,7 +71,6 @@ public class OrderDatabaseHelper {
     }
 
     // Get Order by id.
-
     public List<Order> getOrdersByUserId(int userId) {
         List<Order> orders = new ArrayList<>();
         String[] columns = {
@@ -103,7 +101,6 @@ public class OrderDatabaseHelper {
 
         return orders;
     }
-
 
     public Order getOrderById(int orderId) {
         Order order = null;
@@ -158,7 +155,6 @@ public class OrderDatabaseHelper {
 
         return orderDetails;
     }
-
 
     // update trạng thái.
     public void updateOrderStatus(int orderId, String status) {
@@ -235,7 +231,6 @@ public class OrderDatabaseHelper {
     public List<Map<String, Object>> getTopSellingProducts(String timeframe, String dateValue) {
         List<Map<String, Object>> result = new ArrayList<>();
 
-        // Chọn truy vấn phù hợp
         String query = "";
         if (timeframe.equals("day")) {
             query = "SELECT p.name AS product_name, " +
@@ -247,6 +242,7 @@ public class OrderDatabaseHelper {
                     "WHERE DATE(o.order_date) = ? " +
                     "GROUP BY p.id " +
                     "ORDER BY total_quantity DESC";
+
         } else if (timeframe.equals("month")) {
             query = "SELECT p.name AS product_name, " +
                     "SUM(od.quantity) AS total_quantity, " +
@@ -285,6 +281,34 @@ public class OrderDatabaseHelper {
         return result;
     }
 
+    public int[] getOrderStatistics() {
+        int[] stats = new int[3];
+
+        Cursor cursor;
+
+        // Lấy số lượng đơn hàng "pending"
+        cursor = database.rawQuery("SELECT COUNT(*) FROM `order` WHERE status = 'Đang giao hàng'", null);
+        if (cursor != null && cursor.moveToFirst()) {
+            stats[0] = cursor.getInt(0);
+            cursor.close();
+        }
+
+        // Lấy số lượng đơn hàng "completed"
+        cursor = database.rawQuery("SELECT COUNT(*) FROM `order` WHERE status = 'Đã nhận hàng'", null);
+        if (cursor != null && cursor.moveToFirst()) {
+            stats[1] = cursor.getInt(0);
+            cursor.close();
+        }
+
+        // Lấy tổng doanh thu từ các đơn hàng đã hoàn thành
+        cursor = database.rawQuery("SELECT SUM(total_amount) FROM `order` WHERE status = 'completed'", null);
+        if (cursor != null && cursor.moveToFirst()) {
+            stats[2] = cursor.isNull(0) ? 0 : cursor.getInt(0);
+            cursor.close();
+        }
+
+        return stats;
+    }
 
 
 

@@ -92,7 +92,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/pendingOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -129,7 +129,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/completed_Order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -166,7 +166,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/earning_Money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -349,7 +349,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView6"
+        android:id="@+id/logOut"
         android:layout_width="150dp"
         android:layout_height="85dp"
         android:layout_marginTop="60dp"

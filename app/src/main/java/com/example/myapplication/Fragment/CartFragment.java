@@ -73,7 +73,7 @@ public class CartFragment extends Fragment {
         }
 
         // Update UI
-        textTotalQuantity.setText("Total Quantity: " + totalQuantity);
-        textTotalAmount.setText(String.format("Total Amount: $%.2f", totalAmount));
+        textTotalQuantity.setText("Tổng số lượng: " + totalQuantity);
+        textTotalAmount.setText(String.format("Tổng tiền: $%.2f", totalAmount));
     }
 }

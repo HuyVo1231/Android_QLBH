@@ -54,7 +54,6 @@ public class AdminAcitivityListProduct extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1001 && resultCode == RESULT_OK) {
-            // Reload your data here
             databaseHelper.open();
             productList.clear();
             productList.addAll(databaseHelper.getAllProducts2());
